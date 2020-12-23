@@ -1,9 +1,15 @@
 function Cell(row, column) {
+  //cell row
   this.row = row;
+  //cell column
   this.column = column;
+  //is cell visited or not
   this.visited = false;
+  //cell configuration
+  //initially crll has all wall......[top,right,bottom,left]
   this.wall = [true, true, true, true];
 
+  //return random unvisited adjacent cell
   this.randomUnvisitedAdjacentWall = () => {
     let adjacent = [];
     if (!this.isCellVisited(this.row - 1, this.column)) {
@@ -24,6 +30,7 @@ function Cell(row, column) {
     }
   };
 
+  //return true if cell is previously visited or not
   this.isCellVisited = (r, c) => {
     if (r < 0 || c < 0 || r == height / w || c == width / w) {
       return true;
@@ -32,6 +39,7 @@ function Cell(row, column) {
     }
   };
 
+  //show the cell with wall
   this.show = () => {
     if (!this.visited) {
       stroke(255);
